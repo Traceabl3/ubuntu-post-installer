@@ -1,4 +1,4 @@
-# ubuntu-post-install.sh
+# ubuntu-post-installer
 Simple post install script for Ubuntu 
 
 # Author:
@@ -16,16 +16,16 @@ Simple post install script for Ubuntu
 
 # Set up:
 
-  Download the file from git: https://github.com/Traceabl3/ubuntu-post-install.sh/blob/main/run <br>
+  Download the file from git: https://github.com/Traceabl3/ubuntu-post-installer/blob/main/run <br>
   Save the file in the home directory. <br>
   
   Using Terminal
-    $ git clone https://github.com/Traceabl3/ubuntu-post-install.sh.git
+    $ git clone https://github.com/Traceabl3/ubuntu-post-installer.git
 
   
 # Edit the file: 
 
-  To edit the shebang file from terminal usung the nano editor, $~ nano -w ubuntu-post-install.sh <br>
+  To edit the shebang file from terminal usung the nano editor, $~ nano -w ubuntu-post-installer.sh <br>
   Replace <passowrd> with your root password only on the local machine. <br>
   Add or change the programs that you would like to install with the script from apt, snap, or flatpak. <br>
   Change the terminal settings that you would like to have, or simply remove that last section to keep the default. 
@@ -36,6 +36,6 @@ Simple post install script for Ubuntu
 
   Ensure the shebang file is in the home directory. <br>
   Run the following commands to execute the script from a new terminal window (Ctrl + Alt + T), entering your password after each command: <br>
-  $ sudo chmod +x ~/ubuntu-post-install.sh <br>
-  $ sudo bash ubuntu-post-install.sh <br>
+  $ sudo chmod +x ~/ubuntu-post-installer.sh <br>
+  $ sudo bash ubuntu-post-installer.sh <br>
   As the script runs, it will ask for your permission with a "y/n" to procede at each step, but will not pause for your password at other 'sudo' commands if you changed <password> in the previous step. <br>
