@@ -3,7 +3,7 @@ Simple post install script for Ubuntu
 
 # Author:
   David Brien <br>
-  @traceabl3
+  @Traceabl3
 #
 # Description:
   A simple post-installation bash script for Ubuntu (20.04) <br>
@@ -16,12 +16,12 @@ Simple post install script for Ubuntu
 
 # Set up:
 
-  Download the file from git: <br>
+  Download the file from git: https://github.com/Traceabl3/ubuntu-post-install.sh/blob/main/run <br>
   Save the file in the home directory. <br>
   
   Using Terminal
-     $ cd /tmp
-     $ wget http://gist.github.com/raw/8108714/ubuntu-post-install.sh
+    $ git clone https://github.com/Traceabl3/ubuntu-post-install.sh.git
+
   
 # Edit the file: 
 
