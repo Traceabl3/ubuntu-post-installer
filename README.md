@@ -34,7 +34,8 @@ Simple post install script for Ubuntu
 
 # Use: 
 
+  Ensure the shebang file is in the home directory. 
   Run the following commands to execute the script from a new terminal window (Ctrl + Alt + T), entering your password after each command: <br>
   $ sudo chmod +x ~/ubuntu-post-install.sh <br>
   $ sudo bash ubuntu-post-installer.sh <br>
-  As the script runs, it will ask for your permission to procede at each step, but will not pause for your password at sudo comands if you changed <password> in the previous step. <br>
+  As the script runs, it will ask for your permission with a "y/n" to procede at each step, but will not pause for your password at other 'sudo' commands if you changed <password> in the previous step. <br>
