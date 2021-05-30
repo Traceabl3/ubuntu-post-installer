@@ -26,20 +26,19 @@ echo '=> Do you know what you are doing'
 echo -e '=> Are you sure? [Y/n] '
 read confirmation
 confirmation=$(echo $confirmation | tr '[:lower:]' '[:upper:]')
-if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; then
+if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; 
+then
+echo '=> Done <='
 fi
-
 # -----------------------------------------------------------------------------
 # => System update/upgrade
 # -----------------------------------------------------------------------------
 echo '=> Update'
 echo <password> | sudo apt-get update
 echo '=> DONE <='
-
 echo '=> Upgrade'
 echo <password> | sudo apt-get upgrade
 echo '=> DONE <='
-
 # -----------------------------------------------------------------------------
 # => Install system utilities
 # -----------------------------------------------------------------------------
@@ -48,7 +47,6 @@ echo '=> DONE <='
 #     samba unity-tweak-tool icedtea-7-plugin openjdk-7-jre \
 #     ubuntu-restricted-extras
 # echo '=> DONE <='
-
 # -----------------------------------------------------------------------------
 # => Install favorite applications
 # -----------------------------------------------------------------------------
@@ -56,11 +54,11 @@ echo '=> Install favorite applications'
 echo -e '=> Are you sure? [Y/n] '
 read confirmation
 confirmation=$(echo $confirmation | tr '[:lower:]' '[:upper:]')
-if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; then
+if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; 
+then
     echo <password> | sudo apt install bluefish firefox flameshot google-chrome inkscape nautilus-autorun-software net.lutris.Lutris python3.8 remmina-file remmina-gnome rhythmbox rhythmbox-device rygel shotwell shotwell-viewer snap-handle-link software-properties-drivers software-properties-gtk software-properties-livepatch sublime_text transmission-gtk usb-creator-gtk vim vino-server vlc wine winetricks Zoo -y
     echo '=> DONE <='
 fi
-
 # -----------------------------------------------------------------------------
 # => Install snap
 # -----------------------------------------------------------------------------
@@ -68,11 +66,11 @@ echo '=> Install snap'
 echo -e '=> Are you sure? [Y/n] '
 read confirmation
 confirmation=$(echo $confirmation | tr '[:lower:]' '[:upper:]')
-if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; then
+if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; 
+then
     echo <password> |sudo apt install snapd
     echo '=> DONE <='
 fi
-
 # -----------------------------------------------------------------------------
 # => Install snap applications
 # -----------------------------------------------------------------------------
@@ -80,7 +78,8 @@ echo '=> Install snap applications'
 echo -e '=> Are you sure? [Y/n] '
 read confirmation
 confirmation=$(echo $confirmation | tr '[:lower:]' '[:upper:]')
-if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; then
+if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; 
+then
     echo <password> |sudo snap install audacity barrier boxy-svg canonical-livepatch core core18 core20 docker gimp gnome-3-28-1804 gnome-3-34-1804 gnome-3-38-2004 gtk-common-themes gtk2-common-themes insomnia-designer kde-frameworks-5-core18 natron postman skype snap-store snapd thunderbird
     echo '=> DONE <='
 fi
@@ -92,11 +91,10 @@ echo '=> Install flatpak'
 echo -e '=> Are you sure? [Y/n] '
 read confirmation
 confirmation=$(echo $confirmation | tr '[:lower:]' '[:upper:]')
-if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; then
+if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; 
+then
     echo <password> | sudo apt install flatpak -y
-
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
 fi
 
 # -----------------------------------------------------------------------------
@@ -106,10 +104,9 @@ echo '=> Install flatpak applications'
 echo -e '=> Are you sure? [Y/n] '
 read confirmation
 confirmation=$(echo $confirmation | tr '[:lower:]' '[:upper:]')
-if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; then
-
+if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; 
+then
 echo <password> | sudo flatpak install kooha -y
-
 fi
 
 # -----------------------------------------------------------------------------
@@ -119,8 +116,8 @@ echo '=> Configure Gnome-Terminal'
 echo -e '=> Are you sure? [Y/n] '
 read confirmation
 confirmation=$(echo $confirmation | tr '[:lower:]' '[:upper:]')
-if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; then
-
+if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; 
+then
 profile_path="/apps/gnome-terminal/profiles/Default"
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ font 'Monospace 12'
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ use-system-font true
@@ -131,7 +128,6 @@ gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profi
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ bold-is-bright true
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ cursor-colors-set '#33ff66'
 fi
-
 echo '------------------------------------------------------------------------'
 echo '=> DONE <='
 echo '------------------------------------------------------------------------'
