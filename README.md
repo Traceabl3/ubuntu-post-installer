@@ -28,6 +28,7 @@ Simple post install script for Ubuntu
   To edit the shebang file from terminal usung the nano editor, $~ nano -w ubuntu-post-install.sh <br>
   Replace <passowrd> with your root password only on the local machine. <br>
   Add or change the programs that you would like to install with the script from apt, snap, or flatpak. <br>
+  Change the terminal settings that you would like to have, or simply remove that last section to keep the default. 
   When editing is complete, press (CTL + O) to save, then press Enter. <br>
   Press (CTL + X) to exit the nano editor. <br>
 
