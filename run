@@ -1,0 +1,97 @@
+#!/bin/bash
+#
+# Ubuntu post-install script
+#
+# Author:
+#   Author  : David Brien   <mr.brien@gmail.com>
+#
+# Description:
+#   A post-installation bash script for Ubuntu (20.04.00)
+#
+# Based on snwh[0] , ravishi[1] , and rougeth[2] scripts.
+#
+# [0] - https://github.com/snwh/ubuntu-post-install/
+# [1] - https://gist.github.com/ravishi/3706813s
+# [2] - https://gist.github.com/rougeth/ubuntu-post-install.sh
+#
+# Usage:
+#   $ cd /tmp
+#   $ wget http://gist.github.com/raw/8108714/ubuntu-post-install.sh
+#   $ chmod +x ubuntu-post-install.sh
+#   $ ./ubuntu-post-install.sh
+#
+
+echo '------------------------------------------------------------------------'
+echo '=> Ubuntu 20.04 post-install script'
+echo '------------------------------------------------------------------------'
+
+# -----------------------------------------------------------------------------
+# => System update/upgrade
+# -----------------------------------------------------------------------------
+echo '=> Update repository information'
+sudo apt-get update -qq
+echo '=> Performe system upgrade'
+sudo apt-get dist-upgrade -y
+echo 'Done.'
+
+# -----------------------------------------------------------------------------
+# => Install system utilities
+# -----------------------------------------------------------------------------
+echo '=> Install system utilities'
+sudo apt-get install -y --no-install-recommends build-essential aptitude ssh \
+    samba unity-tweak-tool icedtea-7-plugin openjdk-7-jre \
+    ubuntu-restricted-extras
+echo 'Done.'
+
+# -----------------------------------------------------------------------------
+# => Install favorite applications
+# -----------------------------------------------------------------------------
+echo '=> Install favorite applications'
+echo -e '=> Are you sure? [Y/n] '
+read confirmation
+confirmation=$(echo $confirmation | tr '[:lower:]' '[:upper:]')
+if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; then
+    sudo apt install bluefish firefox flameshot google-chrome inkscape nautilus-autorun-software net.lutris.Lutris python3.8 remmina-file remmina-gnome rhythmbox rhythmbox-device rygel shotwell shotwell-viewer snap-handle-link software-properties-drivers software-properties-gtk software-properties-livepatch sublime_text transmission-gtk usb-creator-gtk vim vino-server vlc wine winetricks Zoo -y
+    echo 'Done.'
+fi
+
+# -----------------------------------------------------------------------------
+# => Install snap applications
+# -----------------------------------------------------------------------------
+echo '=> Install snap applications'
+echo -e '=> Are you sure? [Y/n] '
+read confirmation
+confirmation=$(echo $confirmation | tr '[:lower:]' '[:upper:]')
+if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; then
+    sudo snap install audacity barrier boxy-svg canonical-livepatch core core18 core20 docker gimp gnome-3-28-1804 gnome-3-34-1804 gnome-3-38-2004 gtk-common-themes gtk2-common-themes insomnia-designer kde-frameworks-5-core18 natron postman skype snap-store snapd thunderbird
+    echo 'Done.'
+fi
+
+# -----------------------------------------------------------------------------
+# => Install flatpak applications
+# -----------------------------------------------------------------------------
+echo '=> Install flatpak applications'
+echo -e '=> Are you sure? [Y/n] '
+read confirmation
+confirmation=$(echo $confirmation | tr '[:lower:]' '[:upper:]')
+if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; then
+    sudo apt install flatpak -y
+
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+sudo flatpak install kooha -y
+
+fi
+
+# -----------------------------------------------------------------------------
+# => Configuring Gnome-terminal
+# -----------------------------------------------------------------------------
+
+profile_path="/apps/gnome-terminal/profiles/Default"
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ font 'Monospace 12'
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ use-system-font true
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ audible-bell false
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ use-theme-colors true
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ background-color '#000000'
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ foreground-color '#AFAFAF'
+
