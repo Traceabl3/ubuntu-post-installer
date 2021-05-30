@@ -22,26 +22,8 @@
 #
 
 echo '------------------------------------------------------------------------'
-echo '=> Ubuntu 20.04 post-install script'
+echo '=> Ubuntu 20.04 post-install-script'
 echo '------------------------------------------------------------------------'
-
-# -----------------------------------------------------------------------------
-# => System update/upgrade
-# -----------------------------------------------------------------------------
-echo '=> Update repository information'
-sudo apt-get update -qq
-echo '=> Performe system upgrade'
-sudo apt-get dist-upgrade -y
-echo 'Done.'
-
-# -----------------------------------------------------------------------------
-# => Install system utilities
-# -----------------------------------------------------------------------------
-echo '=> Install system utilities'
-sudo apt-get install -y --no-install-recommends build-essential aptitude ssh \
-    samba unity-tweak-tool icedtea-7-plugin openjdk-7-jre \
-    ubuntu-restricted-extras
-echo 'Done.'
 
 # -----------------------------------------------------------------------------
 # => Safety Stop
@@ -54,6 +36,22 @@ if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; then
 fi
 
 # -----------------------------------------------------------------------------
+# => System update/upgrade
+# -----------------------------------------------------------------------------
+echo '=> Update'
+echo <password> | sudo apt-get update -qq
+echo 'Done.'
+
+# -----------------------------------------------------------------------------
+# => Install system utilities
+# -----------------------------------------------------------------------------
+# echo '=> Install system utilities'
+# sudo apt-get install -y --no-install-recommends build-essential aptitude ssh \
+#     samba unity-tweak-tool icedtea-7-plugin openjdk-7-jre \
+#     ubuntu-restricted-extras
+# echo 'Done.'
+
+# -----------------------------------------------------------------------------
 # => Install favorite applications
 # -----------------------------------------------------------------------------
 echo '=> Install favorite applications'
@@ -61,7 +59,7 @@ echo -e '=> Are you sure? [Y/n] '
 read confirmation
 confirmation=$(echo $confirmation | tr '[:lower:]' '[:upper:]')
 if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; then
-    sudo apt install bluefish firefox flameshot google-chrome inkscape nautilus-autorun-software net.lutris.Lutris python3.8 remmina-file remmina-gnome rhythmbox rhythmbox-device rygel shotwell shotwell-viewer snap-handle-link software-properties-drivers software-properties-gtk software-properties-livepatch sublime_text transmission-gtk usb-creator-gtk vim vino-server vlc wine winetricks Zoo -y
+    echo <password> | sudo apt install bluefish firefox flameshot google-chrome inkscape nautilus-autorun-software net.lutris.Lutris python3.8 remmina-file remmina-gnome rhythmbox rhythmbox-device rygel shotwell shotwell-viewer snap-handle-link software-properties-drivers software-properties-gtk software-properties-livepatch sublime_text transmission-gtk usb-creator-gtk vim vino-server vlc wine winetricks Zoo -y
     echo 'Done.'
 fi
 
@@ -73,7 +71,7 @@ echo -e '=> Are you sure? [Y/n] '
 read confirmation
 confirmation=$(echo $confirmation | tr '[:lower:]' '[:upper:]')
 if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; then
-    sudo apt install snapd
+    echo <password> |sudo apt install snapd
     echo 'Done.'
 fi
 
@@ -85,7 +83,7 @@ echo -e '=> Are you sure? [Y/n] '
 read confirmation
 confirmation=$(echo $confirmation | tr '[:lower:]' '[:upper:]')
 if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; then
-    sudo snap install audacity barrier boxy-svg canonical-livepatch core core18 core20 docker gimp gnome-3-28-1804 gnome-3-34-1804 gnome-3-38-2004 gtk-common-themes gtk2-common-themes insomnia-designer kde-frameworks-5-core18 natron postman skype snap-store snapd thunderbird
+    echo <password> |sudo snap install audacity barrier boxy-svg canonical-livepatch core core18 core20 docker gimp gnome-3-28-1804 gnome-3-34-1804 gnome-3-38-2004 gtk-common-themes gtk2-common-themes insomnia-designer kde-frameworks-5-core18 natron postman skype snap-store snapd thunderbird
     echo 'Done.'
 fi
 
@@ -97,7 +95,7 @@ echo -e '=> Are you sure? [Y/n] '
 read confirmation
 confirmation=$(echo $confirmation | tr '[:lower:]' '[:upper:]')
 if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; then
-    sudo apt install flatpak -y
+    echo <password> | sudo apt install flatpak -y
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
@@ -112,7 +110,7 @@ read confirmation
 confirmation=$(echo $confirmation | tr '[:lower:]' '[:upper:]')
 if [[ $confirmation == 'YES' || $confirmation == 'Y' ]]; then
 
-sudo flatpak install kooha -y
+echo <password> | sudo flatpak install kooha -y
 
 fi
 
@@ -135,3 +133,35 @@ gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profi
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ bold-is-bright true
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ cursor-colors-set '#33ff66'
 fi
+
+echo '------------------------------------------------------------------------'
+echo '=> DONE'
+echo '      __,aaPPPPPPPPaa,__
+         ,adP"""'          `""Yb,_
+      ,ad"'                     `"Yb,
+    ,dP'     _,adPP"""""YYba,_     `"Y,
+   aP'     ,d""'           `""Ya,     "Y,
+ ,d"     ,P"     _________     `"b,    `Yb,
+,d'     d"    ,adP""""""""Yba,    "b,    "Y,
+d'    ,P'   ,dP"            `Yb,   `Y,    `Y,
+8    ,P'   ,d'    ,dP""Yb,    `Y,   `Y,    `b
+8    d'    d'   ,d"      "b,   `Y,   `8,    Y,
+8    8     8    d'    _   `Y,   `8    `8    `b
+8    8     8    8     8    `b    8     8     8
+8    Y,    Y,   `b, ,aP     P    8    ,P     8
+I,   `Y,   `8,    """"     d'   ,P    d"    ,P
+`b,   `8,    "b,         ,P"   ,P'   ,P'    d'
+ `b,   `Ya,    "Ya,,__,aP"    ,P'   ,P"    ,P
+  `Y,    `Ya,     `"""''     ,P'   ,d"    ,P'
+   `Yb,    `"Ya,_         _,d"    ,P'    ,P'
+     `Yb,      ""YbaaaaadP"'     ,P'    ,P'   Normand
+       `Yba,                   ,d'    ,dP'    Veilleux
+          `"Yba,__       __,adP"     dP"
+              `"""""""""""""'
+
+
+'
+
+echo '------------------------------------------------------------------------'
+
+ 
