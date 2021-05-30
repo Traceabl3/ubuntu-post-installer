@@ -14,12 +14,6 @@
 # [1] - https://gist.github.com/ravishi/3706813s
 # [2] - https://gist.github.com/rougeth/ubuntu-post-install.sh
 #
-# Usage:
-#   $ cd /tmp
-#   $ wget http://gist.github.com/raw/8108714/ubuntu-post-install.sh
-#   $ chmod +x ubuntu-post-install.sh
-#   $ ./ubuntu-post-install.sh
-#
 
 echo '------------------------------------------------------------------------'
 echo '=> Ubuntu 20.04 post-install-script'
