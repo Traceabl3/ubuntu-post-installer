@@ -16,8 +16,12 @@ Simple post install script for Ubuntu
 
 # Set up:
 
-  Download the file: <br>
+  Download the file from git: <br>
   Save the file in the home directory. <br>
+  
+  Using Terminal
+     $ cd /tmp
+     $ wget http://gist.github.com/raw/8108714/ubuntu-post-install.sh
   
 # Edit the file: 
 
